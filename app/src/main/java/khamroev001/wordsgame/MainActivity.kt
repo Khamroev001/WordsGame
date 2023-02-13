@@ -3,6 +3,7 @@ package khamroev001.wordsgame
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.CountDownTimer
 import android.os.Handler
 import android.os.Looper
 import android.view.View
@@ -15,7 +16,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     var str: String = ""
     var count = 0
     var clickcount = 0
-    var correctanswer = ""
+    var correctanswer: Array<String>? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -26,17 +27,31 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         button3.setOnClickListener(this)
         button4.setOnClickListener(this)
 
+
+        object : CountDownTimer(30000, 1000) {
+
+            // Callback function, fired on regular interval
+            override fun onTick(millisUntilFinished: Long) {
+                tv.setText((millisUntilFinished / 1000).toString())
+            }
+
+            // Callback function, fired
+            // when the time is up
+            override fun onFinish() {
+
+            }
+        }.start()
+
     }
 
-    var quizArray = arrayOf(
-        WordQuiz("rice", "c", "i", "r", "e"),
-        WordQuiz("text", "e", "t", "t", "x"),
-        WordQuiz("frog", "o", "r", "g", "f"),
-        WordQuiz("earn", "a", "e", "r", "n"),
-        WordQuiz("baby", "b", "y", "a", "b"),
-        WordQuiz("neck", "e", "n", "k", "c"),
-        WordQuiz("race", "c", "a", "r", "e"),
-        WordQuiz("face", "c", "a", "f", "e"),
+    var quizArray= arrayOf(WordQuiz(arrayOf("rice"),"c","i","r","e"),
+        WordQuiz(arrayOf("text"),"e","t","t","x"),
+        WordQuiz(arrayOf("frog"),"o","r","g","f"),
+        WordQuiz(arrayOf("earn","near"),"a","e","r","n"),
+        WordQuiz(arrayOf("baby"),"b","y","a","b"),
+        WordQuiz(arrayOf("neck"),"e","n","k","c"),
+        WordQuiz(arrayOf("race","care"),"c","a","r","e"),
+        WordQuiz(arrayOf("face"),"c","a","f","e"),
     )
 
     fun reloadQuiz() {
@@ -81,14 +96,16 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             Handler(Looper.getMainLooper()).postDelayed({
                 restart()
             }, 300)
-            restart()
         }
     }
 
     fun check(): Boolean {
-        if (str == correctanswer) {
-            return true
+        for (i in  0..correctanswer?.size!! -1){
+            if (str == correctanswer!![i]) {
+                return true
+            }
         }
+
         return false
     }
 
@@ -132,4 +149,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         button3.isClickable = true
         button4.isClickable = true
     }
+
+
+
 }

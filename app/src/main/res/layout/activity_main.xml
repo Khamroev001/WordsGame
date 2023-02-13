@@ -53,26 +53,37 @@
             android:layout_weight="1"
             android:orientation="horizontal">
 
-            <androidx.appcompat.widget.AppCompatButton
+            <TextView
                 android:id="@+id/button1"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_margin="10dp"
                 android:layout_weight="1"
+                android:tag="1"
+                android:textAlignment="center"
+                android:gravity="center"
+                android:textAllCaps="true"
+                android:textColor="@color/black"
                 android:background="@drawable/btn_bcg_white"
                 android:text="R"
                 android:textSize="48dp"
                 android:textStyle="bold" />
 
-            <androidx.appcompat.widget.AppCompatButton
+            <TextView
                 android:id="@+id/button2"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_margin="10dp"
                 android:layout_weight="1"
+                android:textAlignment="center"
+                android:tag="2"
+                android:gravity="center"
+                android:textAllCaps="true"
+                android:textColor="@color/black"
                 android:background="@drawable/btn_bcg_white"
-                android:text="I"
-                android:textSize="48dp" />
+                android:text="R"
+                android:textSize="48dp"
+                android:textStyle="bold" />
         </LinearLayout>
 
         <LinearLayout
@@ -81,25 +92,37 @@
             android:layout_weight="1"
             android:orientation="horizontal">
 
-            <androidx.appcompat.widget.AppCompatButton
+            <TextView
                 android:id="@+id/button3"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_margin="10dp"
                 android:layout_weight="1"
+                android:textAlignment="center"
+                android:textAllCaps="true"
+                android:tag="3"
+                android:gravity="center"
+                android:textColor="@color/black"
                 android:background="@drawable/btn_bcg_white"
-                android:text="I"
-                android:textSize="48dp" />
+                android:text="R"
+                android:textSize="48dp"
+                android:textStyle="bold" />
 
-            <androidx.appcompat.widget.AppCompatButton
+            <TextView
                 android:id="@+id/button4"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_margin="10dp"
                 android:layout_weight="1"
+                android:textAlignment="center"
+                android:textAllCaps="true"
+                android:tag="4"
+                android:gravity="center"
+                android:textColor="@color/black"
                 android:background="@drawable/btn_bcg_white"
-                android:text="I"
-                android:textSize="48dp" />
+                android:text="R"
+                android:textSize="48dp"
+                android:textStyle="bold" />
         </LinearLayout>
     </LinearLayout>
 
@@ -116,35 +139,55 @@ android:gravity="center"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout">
 
-        <androidx.appcompat.widget.AppCompatButton
+        <TextView
+            android:id="@+id/cube1"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_marginEnd="5dp"
+            android:textAlignment="center"
+            android:gravity="center"
+            android:textAllCaps="true"
+            android:textColor="@color/white"
             android:background="@drawable/outlined"
             android:text=""
             android:textSize="24dp" />
 
-        <androidx.appcompat.widget.AppCompatButton
+        <TextView
+            android:id="@+id/cube2"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_marginEnd="5dp"
             android:background="@drawable/outlined"
+            android:textAlignment="center"
+            android:gravity="center"
+            android:textAllCaps="true"
+            android:textColor="@color/white"
             android:text=""
             android:textSize="24dp" />
 
-        <androidx.appcompat.widget.AppCompatButton
+        <TextView
+            android:id="@+id/cube3"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:background="@drawable/outlined"
             android:text=""
+            android:textAlignment="center"
+            android:gravity="center"
+            android:textAllCaps="true"
+            android:textColor="@color/white"
             android:layout_marginEnd="5dp"
             android:textSize="24dp"/>
 
-        <androidx.appcompat.widget.AppCompatButton
+        <TextView
+            android:id="@+id/cube4"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:background="@drawable/outlined"
             android:text=""
+            android:textAlignment="center"
+            android:gravity="center"
+            android:textAllCaps="true"
+            android:textColor="@color/white"
             android:layout_marginEnd="5dp"
             android:textSize="24dp"/>
 

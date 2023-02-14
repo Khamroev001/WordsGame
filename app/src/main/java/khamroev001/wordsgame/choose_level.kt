@@ -18,5 +18,9 @@ class choose_level : AppCompatActivity() {
             var intent=Intent(this,level2::class.java)
             startActivity(intent)
         }
+        choose_level3.setOnClickListener {
+            var intent=Intent(this,level3::class.java)
+            startActivity(intent)
+        }
     }
 }

@@ -10,28 +10,30 @@ import android.view.View
 import android.widget.ImageButton
 import android.widget.TextView
 import androidx.appcompat.widget.AppCompatButton
-import kotlinx.android.synthetic.main.activity_level2.*
-import kotlinx.android.synthetic.main.activity_level2.*
-import kotlinx.android.synthetic.main.activity_level2.button1
-import kotlinx.android.synthetic.main.activity_level2.button2
-import kotlinx.android.synthetic.main.activity_level2.button3
-import kotlinx.android.synthetic.main.activity_level2.button4
-import kotlinx.android.synthetic.main.activity_level2.button5
-import kotlinx.android.synthetic.main.activity_level2.cube1
-import kotlinx.android.synthetic.main.activity_level2.cube2
-import kotlinx.android.synthetic.main.activity_level2.cube3
-import kotlinx.android.synthetic.main.activity_level2.cube4
-import kotlinx.android.synthetic.main.activity_level2.cube5
-import kotlinx.android.synthetic.main.activity_level2.tv
+import kotlinx.android.synthetic.main.activity_level3.*
+import kotlinx.android.synthetic.main.activity_level3.*
+import kotlinx.android.synthetic.main.activity_level3.button1
+import kotlinx.android.synthetic.main.activity_level3.button2
+import kotlinx.android.synthetic.main.activity_level3.button3
+import kotlinx.android.synthetic.main.activity_level3.button4
+import kotlinx.android.synthetic.main.activity_level3.button5
+import kotlinx.android.synthetic.main.activity_level3.button6
+import kotlinx.android.synthetic.main.activity_level3.cube1
+import kotlinx.android.synthetic.main.activity_level3.cube2
+import kotlinx.android.synthetic.main.activity_level3.cube3
+import kotlinx.android.synthetic.main.activity_level3.cube4
+import kotlinx.android.synthetic.main.activity_level3.cube5
+import kotlinx.android.synthetic.main.activity_level3.cube6
+import kotlinx.android.synthetic.main.activity_level3.tv
 
-class level2 : AppCompatActivity(), View.OnClickListener {
+class level3 : AppCompatActivity(), View.OnClickListener {
     var str: String = ""
     var count = 0
     var clickcount = 0
     var correctanswer: Array<String>? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_level2)
+        setContentView(R.layout.activity_level3)
 
         reloadQuiz()
         button1.setOnClickListener(this)
@@ -39,6 +41,7 @@ class level2 : AppCompatActivity(), View.OnClickListener {
         button3.setOnClickListener(this)
         button4.setOnClickListener(this)
         button5.setOnClickListener(this)
+        button6.setOnClickListener(this)
 
 
         object : CountDownTimer(30000, 1000) {
@@ -58,11 +61,8 @@ class level2 : AppCompatActivity(), View.OnClickListener {
     }
 
     var quizArray= arrayOf(
-        WordQuiz_level2(arrayOf("every"),"v","r","e","y","e"),
-        WordQuiz_level2(arrayOf("apple"),"p","a","l","e","p"),
-        WordQuiz_level2(arrayOf("clear"),"e","a","l","c","r"),
-        WordQuiz_level2(arrayOf("cause"),"s","a","u","e","c"),
-        WordQuiz_level2(arrayOf("level"),"v","e","l","e","l"),
+        WordQuiz_level3(arrayOf("answer"),"w","r","e","n","a","s"),
+        WordQuiz_level3(arrayOf("amount"),"u","t","m","n","a","o"),
     )
 
     fun reloadQuiz() {
@@ -75,6 +75,7 @@ class level2 : AppCompatActivity(), View.OnClickListener {
         button3.text = quizArray[count].thirdletter
         button4.text = quizArray[count].fourthletter
         button5.text = quizArray[count].fifthletter
+        button6.text = quizArray[count].sixthletter
         correctanswer = quizArray[count].word
         count++
     }
@@ -102,12 +103,15 @@ class level2 : AppCompatActivity(), View.OnClickListener {
         if (clickcount.toString() == "5") {
             cuberepressed(cube5, btn)
         }
-        if (clickcount == 5 && check()) {
+        if (clickcount.toString() == "6") {
+            cuberepressed(cube6, btn)
+        }
+        if (clickcount == 6 && check()) {
             clickcount = 0
             Handler(Looper.getMainLooper()).postDelayed({
                 reloadQuiz()
             }, 300)
-        } else if (clickcount == 5 && !check()) {
+        } else if (clickcount == 6 && !check()) {
             Handler(Looper.getMainLooper()).postDelayed({
                 restart()
             }, 300)
@@ -135,10 +139,10 @@ class level2 : AppCompatActivity(), View.OnClickListener {
         cube.setTextColor(Color.WHITE)
         cube.setBackgroundResource(R.drawable.outlined)
     }
-     fun buttonrestart(button: TextView){
-         button.setTextColor(Color.BLACK)
-         button.setBackgroundResource(R.drawable.btn_bcg_white)
-     }
+    fun buttonrestart(button: TextView){
+        button.setTextColor(Color.BLACK)
+        button.setBackgroundResource(R.drawable.btn_bcg_white)
+    }
 
     fun restart() {
         str = ""
@@ -149,6 +153,7 @@ class level2 : AppCompatActivity(), View.OnClickListener {
         buttonrestart(button3)
         buttonrestart(button4)
         buttonrestart(button5)
+        buttonrestart(button6)
 
 
 
@@ -157,6 +162,7 @@ class level2 : AppCompatActivity(), View.OnClickListener {
         cuberestart(cube3)
         cuberestart(cube4)
         cuberestart(cube5)
+        cuberestart(cube6)
 
 
         button1.isClickable = true
@@ -164,6 +170,7 @@ class level2 : AppCompatActivity(), View.OnClickListener {
         button3.isClickable = true
         button4.isClickable = true
         button5.isClickable = true
+        button6.isClickable = true
     }
 
 

@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".level2"
+    android:background="@color/dark_blue"
+    >
+
+    <TextView
+        android:id="@+id/tv"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="48dp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/level" />
+    <LinearLayout
+        android:id="@+id/level"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@drawable/level_red_bcg"
+        >
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Level 2"
+            android:textStyle="bold"
+            android:layout_marginTop="8dp"
+            android:textSize="32dp"
+            android:textColor="@color/white"
+            android:textAlignment="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="420dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="128dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="267dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/level">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/button1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                android:tag="1"
+                android:textAlignment="center"
+                android:gravity="center"
+                android:textAllCaps="true"
+                android:textColor="@color/black"
+                android:background="@drawable/btn_bcg_white"
+                android:text="R"
+                android:textSize="40dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/button2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                android:textAlignment="center"
+                android:tag="2"
+                android:gravity="center"
+                android:textAllCaps="true"
+                android:textColor="@color/black"
+                android:background="@drawable/btn_bcg_white"
+                android:text="R"
+                android:textSize="40dp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/button3"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                android:textAlignment="center"
+                android:textAllCaps="true"
+                android:tag="3"
+                android:gravity="center"
+                android:textColor="@color/black"
+                android:background="@drawable/btn_bcg_white"
+                android:text="R"
+                android:textSize="40dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/button4"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                android:textAlignment="center"
+                android:textAllCaps="true"
+                android:tag="4"
+                android:gravity="center"
+                android:textColor="@color/black"
+                android:background="@drawable/btn_bcg_white"
+                android:text="R"
+                android:textSize="48dp"
+                android:textStyle="bold" />
+        </LinearLayout>
+        <TextView
+            android:id="@+id/button5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:tag="5"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:background="@drawable/btn_bcg_white"
+            android:text="R"
+            android:textSize="40dp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginTop="32dp"
+        android:orientation="horizontal"
+        android:padding="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+
+        <TextView
+            android:id="@+id/cube1"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginEnd="5dp"
+            android:textAlignment="center"
+            android:gravity="center"
+            android:textAllCaps="true"
+            android:textColor="@color/white"
+            android:background="@drawable/outlined"
+            android:text=""
+            android:textSize="24dp" />
+
+        <TextView
+            android:id="@+id/cube2"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginEnd="5dp"
+            android:background="@drawable/outlined"
+            android:textAlignment="center"
+            android:gravity="center"
+            android:textAllCaps="true"
+            android:textColor="@color/white"
+            android:text=""
+            android:textSize="24dp" />
+
+        <TextView
+            android:id="@+id/cube3"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@drawable/outlined"
+            android:text=""
+            android:textAlignment="center"
+            android:gravity="center"
+            android:textAllCaps="true"
+            android:textColor="@color/white"
+            android:layout_marginEnd="5dp"
+            android:textSize="24dp"/>
+
+        <TextView
+            android:id="@+id/cube4"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@drawable/outlined"
+            android:text=""
+            android:textAlignment="center"
+            android:gravity="center"
+            android:textAllCaps="true"
+            android:textColor="@color/white"
+            android:layout_marginEnd="5dp"
+            android:textSize="24dp"/>
+        <TextView
+            android:id="@+id/cube5"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginEnd="5dp"
+            android:background="@drawable/outlined"
+            android:textAlignment="center"
+            android:gravity="center"
+            android:textAllCaps="true"
+            android:textColor="@color/white"
+            android:text=""
+            android:textSize="24dp" />
+
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

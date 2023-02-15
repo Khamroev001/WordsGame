@@ -242,17 +242,18 @@
             android:textColor="@color/white"
             android:layout_marginEnd="5dp"
             android:textSize="24dp"/>
+
         <TextView
             android:id="@+id/cube5"
-            android:layout_width="50dp"
+            android:layout_width="56dp"
             android:layout_height="50dp"
             android:layout_marginEnd="5dp"
             android:background="@drawable/outlined"
-            android:textAlignment="center"
             android:gravity="center"
+            android:text=""
+            android:textAlignment="center"
             android:textAllCaps="true"
             android:textColor="@color/white"
-            android:text=""
             android:textSize="24dp" />
         <TextView
             android:id="@+id/cube6"

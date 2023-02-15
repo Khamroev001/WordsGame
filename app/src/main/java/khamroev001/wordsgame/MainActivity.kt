@@ -10,12 +10,24 @@ import android.view.View
 import android.widget.ImageButton
 import android.widget.TextView
 import androidx.appcompat.widget.AppCompatButton
+import kotlinx.android.synthetic.main.activity_level2.*
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_main.button1
+import kotlinx.android.synthetic.main.activity_main.button2
+import kotlinx.android.synthetic.main.activity_main.button3
+import kotlinx.android.synthetic.main.activity_main.button4
+import kotlinx.android.synthetic.main.activity_main.cube1
+import kotlinx.android.synthetic.main.activity_main.cube2
+import kotlinx.android.synthetic.main.activity_main.cube3
+import kotlinx.android.synthetic.main.activity_main.cube4
+import kotlinx.android.synthetic.main.activity_main.tv
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
     var str: String = ""
     var count = 0
     var clickcount = 0
+    var score = 0
+    var activeIndex = 1
     var correctanswer: Array<String>? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,14 +56,15 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
     }
 
-    var quizArray= arrayOf(WordQuiz(arrayOf("rice"),"c","i","r","e"),
-        WordQuiz(arrayOf("text"),"e","t","t","x"),
-        WordQuiz(arrayOf("frog"),"o","r","g","f"),
-        WordQuiz(arrayOf("earn","near"),"a","e","r","n"),
-        WordQuiz(arrayOf("baby"),"b","y","a","b"),
-        WordQuiz(arrayOf("neck"),"e","n","k","c"),
-        WordQuiz(arrayOf("race","care"),"c","a","r","e"),
-        WordQuiz(arrayOf("face"),"c","a","f","e"),
+    var quizArray = arrayOf(
+        WordQuiz(arrayOf("rice"), "c", "i", "r", "e"),
+        WordQuiz(arrayOf("text"), "e", "t", "t", "x"),
+        WordQuiz(arrayOf("frog"), "o", "r", "g", "f"),
+        WordQuiz(arrayOf("earn", "near"), "a", "e", "r", "n"),
+        WordQuiz(arrayOf("baby"), "b", "y", "a", "b"),
+        WordQuiz(arrayOf("neck"), "e", "n", "k", "c"),
+        WordQuiz(arrayOf("race", "care"), "c", "a", "r", "e"),
+        WordQuiz(arrayOf("face"), "c", "a", "f", "e"),
     )
 
     fun reloadQuiz() {
@@ -100,8 +113,9 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     fun check(): Boolean {
-        for (i in  0..correctanswer?.size!! -1){
+        for (i in 0..correctanswer?.size!! - 1) {
             if (str == correctanswer!![i]) {
+                score++
                 return true
             }
         }
@@ -121,17 +135,21 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         cube.setBackgroundResource(R.drawable.outlined)
     }
 
+    fun buttonrestart(button: TextView) {
+        button.setTextColor(Color.BLACK)
+        button.setBackgroundResource(R.drawable.btn_bcg_white)
+        button.isClickable = true
+
+      }
+
     fun restart() {
         str = ""
         clickcount = 0
-        button1.setTextColor(Color.BLACK)
-        button1.setBackgroundResource(R.drawable.btn_bcg_white)
-        button2.setTextColor(Color.BLACK)
-        button2.setBackgroundResource(R.drawable.btn_bcg_white)
-        button3.setTextColor(Color.BLACK)
-        button3.setBackgroundResource(R.drawable.btn_bcg_white)
-        button4.setTextColor(Color.BLACK)
-        button4.setBackgroundResource(R.drawable.btn_bcg_white)
+
+        buttonrestart(button1)
+        buttonrestart(button2)
+        buttonrestart(button3)
+        buttonrestart(button4)
 
         cube1.text = ""
         cube2.text = ""
@@ -149,7 +167,6 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         button3.isClickable = true
         button4.isClickable = true
     }
-
 
 
 }

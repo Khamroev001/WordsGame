@@ -138,12 +138,13 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-android:gravity="center"
         android:layout_marginStart="32dp"
-        android:layout_marginEnd="32dp"
         android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
+        android:gravity="center"
         android:orientation="horizontal"
         android:padding="16dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -155,13 +156,13 @@ android:gravity="center"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_marginEnd="5dp"
-            android:textAlignment="center"
+            android:background="@drawable/outlined"
             android:gravity="center"
+            android:tag="1"
+            android:text=""
+            android:textAlignment="center"
             android:textAllCaps="true"
             android:textColor="@color/white"
-            android:background="@drawable/outlined"
-            android:text=""
-            android:tag="1"
             android:textSize="24dp" />
 
         <TextView
@@ -170,43 +171,65 @@ android:gravity="center"
             android:layout_height="50dp"
             android:layout_marginEnd="5dp"
             android:background="@drawable/outlined"
-            android:textAlignment="center"
             android:gravity="center"
+            android:tag="2"
+            android:text=""
+            android:textAlignment="center"
             android:textAllCaps="true"
             android:textColor="@color/white"
-            android:text=""
-            android:tag="2"
             android:textSize="24dp" />
 
         <TextView
             android:id="@+id/cube3"
             android:layout_width="50dp"
             android:layout_height="50dp"
+            android:layout_marginEnd="5dp"
             android:background="@drawable/outlined"
+            android:gravity="center"
+            android:tag="3"
             android:text=""
             android:textAlignment="center"
-            android:gravity="center"
             android:textAllCaps="true"
             android:textColor="@color/white"
-            android:layout_marginEnd="5dp"
-            android:tag="3"
-            android:textSize="24dp"/>
+            android:textSize="24dp" />
 
         <TextView
             android:id="@+id/cube4"
             android:layout_width="50dp"
             android:layout_height="50dp"
+            android:layout_marginEnd="5dp"
             android:background="@drawable/outlined"
+            android:gravity="center"
+            android:tag="4"
             android:text=""
             android:textAlignment="center"
-            android:gravity="center"
             android:textAllCaps="true"
             android:textColor="@color/white"
-            android:layout_marginEnd="5dp"
-            android:tag="4"
-            android:textSize="24dp"/>
+            android:textSize="24dp" />
 
     </LinearLayout>
 
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/finish"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:layout_marginTop="8dp"
+        android:layout_weight="1"
+        android:background="@drawable/outlined"
+        android:gravity="center"
+        android:tag="1"
+        android:text="Finish"
+        android:textAlignment="center"
+        android:textAllCaps="true"
+        android:textColor="@color/white"
+        android:textSize="16dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
+        app:layout_constraintVertical_bias="0.431" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,12 +1,15 @@
 package khamroev001.wordsgame
 
+import android.annotation.SuppressLint
+import android.content.Intent
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.os.Handler
 import android.os.Looper
-import android.view.View
+import android.view.animation.Animation
+import android.view.animation.AnimationUtils
 import android.widget.ImageButton
 import android.widget.TextView
 import androidx.appcompat.widget.AppCompatButton
@@ -21,14 +24,18 @@ import kotlinx.android.synthetic.main.activity_main.cube2
 import kotlinx.android.synthetic.main.activity_main.cube3
 import kotlinx.android.synthetic.main.activity_main.cube4
 import kotlinx.android.synthetic.main.activity_main.tv
+import android.view.View
+import androidx.appcompat.app.AlertDialog
+import kotlinx.android.synthetic.main.dialog_view.view.*
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
     var str: String = ""
     var count = 0
     var clickcount = 0
     var score = 0
-    var activeIndex = 1
+    var k = 0
     var correctanswer: Array<String>? = null
+    @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -39,20 +46,29 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         button3.setOnClickListener(this)
         button4.setOnClickListener(this)
 
+        finish.setOnClickListener {
+            val view = View.inflate(this@MainActivity, R.layout.dialog_view, null)
+            view.score.text = "${0}/${0}"
+            val builder = AlertDialog.Builder(this@MainActivity)
+            builder.setView(view)
 
-        object : CountDownTimer(30000, 1000) {
+            val dialog = builder.create()
+            dialog.show()
+            dialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
+            dialog.setCancelable(false)
 
-            // Callback function, fired on regular interval
-            override fun onTick(millisUntilFinished: Long) {
-                tv.setText((millisUntilFinished / 1000).toString())
+            view.home.setOnClickListener {
+                dialog.dismiss()
+                var intent = Intent(this, choose_level::class.java)
+
+                startActivity(intent)
             }
-
-            // Callback function, fired
-            // when the time is up
-            override fun onFinish() {
-
+            view.restart.setOnClickListener {
+                dialog.dismiss()
+               onRestart()
             }
-        }.start()
+//            view.score.text = "${score}/${k}"
+        }
 
     }
 
@@ -116,9 +132,16 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         for (i in 0..correctanswer?.size!! - 1) {
             if (str == correctanswer!![i]) {
                 score++
+                k++
                 return true
             }
         }
+        k++
+        var anim = AnimationUtils.loadAnimation(this, R.anim.anim_error_vibration)
+        cube1.startAnimation(anim)
+        cube2.startAnimation(anim)
+        cube3.startAnimation(anim)
+        cube4.startAnimation(anim)
 
         return false
     }
@@ -140,11 +163,12 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         button.setBackgroundResource(R.drawable.btn_bcg_white)
         button.isClickable = true
 
-      }
+    }
 
     fun restart() {
         str = ""
         clickcount = 0
+
 
         buttonrestart(button1)
         buttonrestart(button2)

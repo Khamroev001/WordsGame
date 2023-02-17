@@ -51,7 +51,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
         finish.setOnClickListener {
             val view = View.inflate(this@MainActivity, R.layout.dialog_view, null)
-            view.score.text = "${score}/${k}"
+            view.score.text = "${score}/${k-1}"
             view.coin.text = "${score}"
 
             allcoins.text=(allcoins.text.toString().toInt()+view.coin.text.toString().toInt()).toString()
@@ -96,7 +96,6 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     )
 
     fun reloadQuiz() {
-        k++
         if (count == quizArray.size) {
             count = 0
         }
@@ -178,6 +177,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     fun restart() {
+        k++
         str = ""
         clickcount = 0
 

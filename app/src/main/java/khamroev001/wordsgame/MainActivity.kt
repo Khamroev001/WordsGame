@@ -2,18 +2,17 @@ package khamroev001.wordsgame
 
 import android.annotation.SuppressLint
 import android.content.Intent
+import android.content.SharedPreferences
 import android.graphics.Color
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.CountDownTimer
 import android.os.Handler
 import android.os.Looper
-import android.view.animation.Animation
+import android.view.View
 import android.view.animation.AnimationUtils
-import android.widget.ImageButton
 import android.widget.TextView
-import androidx.appcompat.widget.AppCompatButton
-import kotlinx.android.synthetic.main.activity_level2.*
+import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
+import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_main.button1
 import kotlinx.android.synthetic.main.activity_main.button2
@@ -23,9 +22,6 @@ import kotlinx.android.synthetic.main.activity_main.cube1
 import kotlinx.android.synthetic.main.activity_main.cube2
 import kotlinx.android.synthetic.main.activity_main.cube3
 import kotlinx.android.synthetic.main.activity_main.cube4
-import kotlinx.android.synthetic.main.activity_main.tv
-import android.view.View
-import androidx.appcompat.app.AlertDialog
 import kotlinx.android.synthetic.main.dialog_view.view.*
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
@@ -34,21 +30,33 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     var clickcount = 0
     var score = 0
     var k = 0
+    var coins=score
     var correctanswer: Array<String>? = null
+    var sharedPreferences: SharedPreferences? =null
+   lateinit var edit: SharedPreferences.Editor
+
     @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        sharedPreferences=getSharedPreferences("coin", MODE_PRIVATE)
+        edit= sharedPreferences?.edit()!!
         reloadQuiz()
         button1.setOnClickListener(this)
         button2.setOnClickListener(this)
         button3.setOnClickListener(this)
         button4.setOnClickListener(this)
+        allcoins.text= sharedPreferences?.getInt("coin",0).toString()
 
         finish.setOnClickListener {
             val view = View.inflate(this@MainActivity, R.layout.dialog_view, null)
-            view.score.text = "${0}/${0}"
+            view.score.text = "${score}/${k}"
+            view.coin.text = "${score}"
+
+            allcoins.text=(allcoins.text.toString().toInt()+view.coin.text.toString().toInt()).toString()
+            savecoins(allcoins.text.toString().toInt())
+
             val builder = AlertDialog.Builder(this@MainActivity)
             builder.setView(view)
 
@@ -60,16 +68,20 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             view.home.setOnClickListener {
                 dialog.dismiss()
                 var intent = Intent(this, choose_level::class.java)
-
                 startActivity(intent)
             }
             view.restart.setOnClickListener {
                 dialog.dismiss()
-               onRestart()
+                val intent = intent
+                finish()
+                startActivity(intent)
             }
-//            view.score.text = "${score}/${k}"
         }
 
+    }
+    fun savecoins(coins:Int){
+        edit?.putInt("coin",coins)
+        edit?.apply()
     }
 
     var quizArray = arrayOf(
@@ -84,6 +96,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     )
 
     fun reloadQuiz() {
+        k++
         if (count == quizArray.size) {
             count = 0
         }
@@ -132,16 +145,15 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         for (i in 0..correctanswer?.size!! - 1) {
             if (str == correctanswer!![i]) {
                 score++
-                k++
                 return true
             }
         }
-        k++
-        var anim = AnimationUtils.loadAnimation(this, R.anim.anim_error_vibration)
-        cube1.startAnimation(anim)
-        cube2.startAnimation(anim)
-        cube3.startAnimation(anim)
-        cube4.startAnimation(anim)
+
+//        var anim = AnimationUtils.loadAnimation(this, R.anim.anim_error_vibration)
+//        cube1.startAnimation(anim)
+//        cube2.startAnimation(anim)
+//        cube3.startAnimation(anim)
+//        cube4.startAnimation(anim)
 
         return false
     }

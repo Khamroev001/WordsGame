@@ -9,7 +9,7 @@ class choose_level : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_choose_level)
-
+        allcoins.text=getSharedPreferences("coin", MODE_PRIVATE).getInt("coin",0).toString()
         choose_level1.setOnClickListener {
             var intent=Intent(this,MainActivity::class.java)
             startActivity(intent)

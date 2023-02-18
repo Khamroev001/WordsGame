@@ -1,9 +1,11 @@
 package khamroev001.wordsgame
 
+import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import kotlinx.android.synthetic.main.activity_choose_level.*
+import kotlin.system.exitProcess
 
 class choose_level : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -22,5 +24,10 @@ class choose_level : AppCompatActivity() {
             var intent=Intent(this,level3::class.java)
             startActivity(intent)
         }
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        finishAffinity()
     }
 }

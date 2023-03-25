@@ -88,7 +88,32 @@ class level3 : AppCompatActivity(), View.OnClickListener {
     var quizArray= arrayOf(
         WordQuiz_level3(arrayOf("answer"),"w","r","e","n","a","s"),
         WordQuiz_level3(arrayOf("amount"),"u","t","m","n","a","o"),
-    )
+
+        WordQuiz_level3(arrayOf("banana"), "a", "n", "b", "a", "n","a"),
+        WordQuiz_level3(arrayOf("coffee"), "f", "o", "c", "e", "e","f"),
+        WordQuiz_level3(arrayOf("donkey"), "n", "k", "d", "o", "y","e"),
+        WordQuiz_level3(arrayOf("eleven"), "v", "e", "l", "e", "n","e"),
+        WordQuiz_level3(arrayOf("flower"), "w", "o", "f", "l", "e","r"),
+        WordQuiz_level3(arrayOf("guitar"), "a", "r", "t", "u", "g","i"),
+        WordQuiz_level3(arrayOf("hockey"), "o", "e", "c", "k", "y","h"),
+        WordQuiz_level3(arrayOf("island"), "d", "s", "n", "a", "i","l"),
+        WordQuiz_level3(arrayOf("jacket"), "t", "k", "e", "j", "a","c"),
+        WordQuiz_level3(arrayOf("kitten"), "t", "e", "n", "k", "i","t"),
+        WordQuiz_level3(arrayOf("laptop"), "t", "p", "l", "a", "o","p"),
+        WordQuiz_level3(arrayOf("monkey"), "e", "y", "n", "k", "o","m"),
+        WordQuiz_level3(arrayOf("number"), "m", "e", "r", "b", "u","n"),
+        WordQuiz_level3(arrayOf("orange"), "n", "g", "e", "o", "a","r"),
+        WordQuiz_level3(arrayOf("pencil"), "c", "i", "n", "e", "l","p"),
+        WordQuiz_level3(arrayOf("rocket"), "t", "k", "c", "e", "o","r"),
+        WordQuiz_level3(arrayOf("silver"), "s", "v", "r", "e", "i","l"),
+        WordQuiz_level3(arrayOf("tulips"), "s", "i", "u", "t", "l","p"),
+        WordQuiz_level3(arrayOf("yellow"), "w", "o", "l", "y", "e","l")
+
+
+
+
+
+        )
 
 
     fun reloadQuiz() {

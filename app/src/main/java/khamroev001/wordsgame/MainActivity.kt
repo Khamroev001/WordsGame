@@ -93,6 +93,10 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         WordQuiz(arrayOf("neck"), "e", "n", "k", "c"),
         WordQuiz(arrayOf("race", "care"), "c", "a", "r", "e"),
         WordQuiz(arrayOf("face"), "c", "a", "f", "e"),
+        WordQuiz(arrayOf("love"), "o", "e", "l", "v"),
+        WordQuiz(arrayOf("home"), "o", "e", "m", "h"),
+        WordQuiz(arrayOf("book"), "o", "b", "k", "o"),
+        WordQuiz(arrayOf("boat"), "a", "b", "t", "o"),
     )
 
     fun reloadQuiz() {

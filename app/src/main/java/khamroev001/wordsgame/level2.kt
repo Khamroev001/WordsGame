@@ -91,6 +91,26 @@ class level2 : AppCompatActivity(), View.OnClickListener {
         WordQuiz_level2(arrayOf("clear"),"e","a","l","c","r"),
         WordQuiz_level2(arrayOf("cause"),"s","a","u","e","c"),
         WordQuiz_level2(arrayOf("level"),"v","e","l","e","l"),
+         WordQuiz_level2(arrayOf("apple"), "a", "e", "l", "p", "p"),
+         WordQuiz_level2(arrayOf("bison"), "s", "n", "o", "i", "b"),
+         WordQuiz_level2(arrayOf("cheet"), "t", "e", "h", "c", "e"),
+         WordQuiz_level2(arrayOf("donut"), "n", "d", "t", "u", "o"),
+         WordQuiz_level2(arrayOf("eagle"), "a", "g", "e", "l", "e"),
+         WordQuiz_level2(arrayOf("fable"), "e", "f", "b", "a", "l"),
+         WordQuiz_level2(arrayOf("grape"), "r", "a", "p", "e", "g"),
+         WordQuiz_level2(arrayOf("haiku"), "a", "k", "u", "h", "i"),
+         WordQuiz_level2(arrayOf("igloo"), "o", "l", "g", "i", "o"),
+         WordQuiz_level2(arrayOf("jolly"), "l", "j", "y", "o", "l"),
+         WordQuiz_level2(arrayOf("koala"), "o", "l", "k", "a", "a"),
+         WordQuiz_level2(arrayOf("lemon"), "o", "n", "l", "e", "m"),
+         WordQuiz_level2(arrayOf("melon"), "l", "n", "m", "e", "o"),
+         WordQuiz_level2(arrayOf("nutty"), "t", "y", "u", "n", "t"),
+         WordQuiz_level2(arrayOf("olive"), "i", "e", "l", "v", "o"),
+         WordQuiz_level2(arrayOf("picky"), "c", "y", "k", "p", "i"),
+         WordQuiz_level2(arrayOf("quiet"), "t", "e", "i", "u", "q"),
+         WordQuiz_level2(arrayOf("roast"), "t", "o", "a", "s", "r"),
+         WordQuiz_level2(arrayOf("silly"), "l", "y", "s", "i", "l"),
+         WordQuiz_level2(arrayOf("tasty"), "t", "y", "s", "a", "t")
     )
 
     fun reloadQuiz() {
